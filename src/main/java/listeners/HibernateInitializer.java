@@ -1,8 +1,8 @@
 package listeners;
 
 import database.Skill;
-import database.Sources;
-import database.Users;
+import database.Source;
+import database.User;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -22,7 +22,6 @@ public class HibernateInitializer implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent sce) {
         Logger logger = Logger.getLogger(HibernateInitializer.class.getName());
-
         try {
             Configuration configuration = new Configuration();
             Properties hbnProperties = new Properties();
@@ -37,17 +36,17 @@ public class HibernateInitializer implements ServletContextListener {
             configuration.setProperties(hbnProperties);
 
             configuration.addAnnotatedClass(Skill.class);
-            configuration.addAnnotatedClass(Sources.class);
-            configuration.addAnnotatedClass(Users.class);
+            configuration.addAnnotatedClass(Source.class);
+            configuration.addAnnotatedClass(User.class);
 
             ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
                     .applySettings(configuration.getProperties()).build();
             SessionFactory sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+            sce.getServletContext().setAttribute("sessionFactory", sessionFactory);
 
         } catch (Exception e) {
             logger.log(Level.SEVERE, "Błąd komunikacji Hibernate");
         }
-
 
     }
 }

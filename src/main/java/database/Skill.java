@@ -14,7 +14,7 @@ public class Skill {
     private String name;
 
     @ManyToMany(mappedBy = "skills")
-    List<Sources> sources;
+    List<Source> sources;
 
     public Skill(String name) {
         this.name = name;

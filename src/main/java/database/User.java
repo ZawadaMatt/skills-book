@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-public class Users {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,9 +24,13 @@ public class Users {
             joinColumns = {@JoinColumn(name = "user_id")},
             inverseJoinColumns = {@JoinColumn(name = "source_id")}
     )
-    private List<Sources> sources;
+    private List<Source> sources;
 
-    public Users(String firstName, String lastName, String password, String username) {
+    public User() {
+
+    }
+
+    public User(String firstName, String lastName, String password, String username) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;

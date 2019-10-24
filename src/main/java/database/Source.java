@@ -5,7 +5,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "sources")
-public class Sources {
+public class Source {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,7 +16,7 @@ public class Sources {
     private String name;
 
     @ManyToMany(mappedBy = "sources")
-    List<Users> users;
+    List<User> users;
 
     @ManyToMany
     @JoinTable(
@@ -26,11 +26,11 @@ public class Sources {
     )
     List<Skill> skills;
 
-    public Sources(String name) {
+    public Source(String name) {
         this.name = name;
     }
 
-    public Sources(String description, String name) {
+    public Source(String description, String name) {
         this.description = description;
         this.name = name;
     }
