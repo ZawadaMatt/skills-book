@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
-  User: mateu
+  User: micha
   Date: 24.10.2019
-  Time: 10:58
+  Time: 19:03
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -16,22 +16,23 @@
 </head>
 <body>
 <jsp:include page="fragments/header.jsp"/>
-<div class="hero-body">
+<form action="register" method="post">
 <div class="columns">
-    <div class="column is-1">
-
-    </div>
-    <div class="column is-one-third">
-        <p class="title is-3 is-spaced">Log in</p>
-        <p class="title is-3 is spaced">
-            <input class="input is-rounded" type="text" placeholder="Username">
-        </p>
-        <input class="input is-rounded" type="password" placeholder="Password">
-    </div>
     <div class="column">
     </div>
+    <div class="column">
+        <h2>Register</h2>
+        <input class="input is-rounded" type="text" placeholder="Username" name="username">
+        <input class="input is-rounded" type="password" placeholder="Password" name="password">
+        <input class="input is-rounded" type="text" placeholder="First Name" name="firstName">
+        <input class="input is-rounded" type="text" placeholder="Last Name" name="lastName">
+        <button class="button is-primary" type="submit">Submit</button>
+    </div>
+    <div class="column">
+
+    </div>
 </div>
-</div>
+</form>
 <jsp:include page="fragments/footer.jsp"/>
 </body>
 </html>

@@ -1,4 +1,3 @@
-<link href="C:\java\bulma\bulma-0.8.0\css\bulma.css" rel="stylesheet" type="text/css">
 <%--
   Created by IntelliJ IDEA.
   User: mateu
@@ -6,15 +5,15 @@
   Time: 10:40
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Title</title>
-</head>
-<body>
-<div class="columns">
-    <div class="column">1</div>
-    <div class="column">2</div>
+<div class="navbar-end">
+    <div class="navbar-item">
+        <div class="buttons">
+            <a class="button is-primary" a href="register">
+                <strong>Sign up</strong>
+            </a>
+            <a class="button is-primary" a href="login">
+                <strong>Log in</strong>
+            </a>
+        </div>
+    </div>
 </div>
-</body>
-</html>

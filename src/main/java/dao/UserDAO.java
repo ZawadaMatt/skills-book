@@ -32,7 +32,7 @@ public class UserDAO extends BaseDAO {
 
     public Boolean isUsernameAvailable(String username) {
         return super.produceInTransaction(
-                session -> session.createQuery("SELECT count(u) FROM User u WHERE u.username = :username", Long.class)
+                session -> session.createQuery("SELECT count(u) FROM Users u WHERE u.username = :username", Long.class)
                         .setParameter("username", username)
                         .getSingleResult() <= 0
         );
@@ -40,20 +40,20 @@ public class UserDAO extends BaseDAO {
 
     public List<User> getAll() {
         return super.produceInTransaction(
-                session -> session.createQuery("SELECT u FROM User u", User.class)
+                session -> session.createQuery("SELECT u FROM Users u", User.class)
                         .getResultList());
     }
 
     public List<User> getAllByUsername(String username) {
         return super.produceInTransaction(
-                session -> session.createQuery("SELECT u FROM User u WHERE u.username = :username", User.class)
+                session -> session.createQuery("SELECT u FROM Users u WHERE u.username = :username", User.class)
                         .setParameter("username", username)
                         .getResultList());
     }
 
     public List<User> getAllByUsernameAndPassword(String username, String password) {
         return super.produceInTransaction(
-                session -> session.createQuery("SELECT u FROM User u WHERE u.username = :username AND u.password = :password", User.class)
+                session -> session.createQuery("SELECT u FROM Users u WHERE u.username = :username AND u.password = :password", User.class)
                         .setParameter("username", username)
                         .setParameter("password", password)
                         .getResultList());
